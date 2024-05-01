@@ -13,23 +13,8 @@ export const SalesGrid = styled.div`
 export const GridHead = styled.div`
   display: flex;
   align-items: center;
-  grid-column: 1;
-  margin-left: 2%;
-`;
-
-export const GridHeadLeftSide = styled.div`  
-  display: flex;
-  justify-content: flex-start;
-`;
-
-export const GridHeadRightSide = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex: 1;
-  margin-right: 2%;
-  align-items: center;
-  color: #a9a9a9;
-  grid-column: 2;
+  justify-content: space-between;
+  margin-left: 10px;
 `;
 
 export const SalesTitle = styled.h2`
@@ -39,6 +24,9 @@ export const SalesTitle = styled.h2`
 `;
 
 export const GridBody = styled.div`
+  @media (max-width: 705px) {
+    font-size: 0.9em;
+  }
   display: flex;
   justify-content: flex-start;
   flex:1;
@@ -55,6 +43,9 @@ export const BoldText = styled.span`
 `;
 
 export const PercentageResult = styled.div`
+  @media (max-width: 705px) {
+    font-size: 1.3em;
+  }
   display: flex;
   color: #3DD655;
   font-size: 2em;
@@ -62,6 +53,9 @@ export const PercentageResult = styled.div`
 `;
 
 export const SecondaryTitle = styled.div`
+  @media (max-width: 705px) {
+    font-size: 0.8em;
+  }
   display: flex;
   margin-top: 5px;
   color: #a9a9a9;

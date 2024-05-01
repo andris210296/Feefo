@@ -5,8 +5,6 @@ import { faInbox, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import {
     SalesGrid,
     GridHead,
-    GridHeadLeftSide,
-    GridHeadRightSide,
     GridBody,
     SalesTitle,
     BoldText,
@@ -19,32 +17,24 @@ import {
 export const SalesInfoComponent = ({ data }) => {
     console.log(data);
 
-
     const percentageSuccessfulUploads = (data.salesOverview.successfulUploads / data.salesOverview.uploads) * 100;
-
     const percentageSuccessfulLinesSaved = (data.salesOverview.linesSaved / data.salesOverview.linesAttempted) * 100;
 
     return (
         <>
             <SalesGrid >
                 <GridHead>
-                    <GridHeadLeftSide>
-                        <div style={{ display: 'flex', alignItems: 'center', color: 'gray' }}>
-                            <FontAwesomeIcon icon={faInbox} color="#0AC9F0" />
-                            <SalesTitle>Sales</SalesTitle>
-
-                            <div style={{ marginLeft: "700%" }}>
-                                <FontAwesomeIcon icon={faInfoCircle} color="gray" />
-                            </div>
-                        </div>
-                    </GridHeadLeftSide>
+                    <div style={{ display: 'flex', alignItems: 'center', color: 'gray' }}>
+                        <FontAwesomeIcon icon={faInbox} color="#0AC9F0" />
+                        <SalesTitle>Sales</SalesTitle>
+                    </div>
+                    <div style={{ marginRight: "10px" }}>
+                        <FontAwesomeIcon icon={faInfoCircle} color="gray" />
+                    </div>
                 </GridHead>
                 <GridBody>
                     You had <BoldText> {data.salesOverview.uploads} uploads </BoldText> and <BoldText>{data.salesOverview.linesSaved}</BoldText> lines added.
                 </GridBody>
-
-
-
             </SalesGrid >
 
             <Grid>

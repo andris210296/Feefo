@@ -4,7 +4,7 @@ import { faHardHat } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 import './account-overview.css';
-import AccountOverviewContent from './components/account-overview-content-component/account-overview-content';
+import AccountOverviewContent from './components/account-overview-content/account-overview-content-component';
 
 export const AccountOverview = ({ data }) => {
   console.log(data);

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -12,8 +14,7 @@ import {
 } from './contact-details';
 
 
-export const ContactDetails = ({ data }) => {
-    console.log(data);
+export const ContactDetails = ({ supportContact }) => {
 
     return (
         <>
@@ -23,15 +24,15 @@ export const ContactDetails = ({ data }) => {
                     your feefo support contact
                 </SecondaryTitle>
                 <ContactDetailBox>
-                    <ContactImage>{data.supportContact.name.charAt(0)}</ContactImage>
+                    <ContactImage>{supportContact.name.charAt(0)}</ContactImage>
                     <InfoBox>
                         <div style={{ fontWeight: 'bold', fontSize: '1.0em', color: '#696969' }}>
-                            {data.supportContact.name}
+                            {supportContact.name}
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', color: 'gray' }}>
                             <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '7px', color: '#696969' }} />
-                            <div>{data.supportContact.email}</div>
-                            <PhoneBox>{data.supportContact.phone}</PhoneBox>
+                            <div>{supportContact.email}</div>
+                            <PhoneBox>{supportContact.phone}</PhoneBox>
                         </div>
                     </InfoBox>
                 </ContactDetailBox>
@@ -40,5 +41,13 @@ export const ContactDetails = ({ data }) => {
         </>
     )
 }
+
+ContactDetails.propTypes = {
+    supportContact: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
+    }).isRequired,
+};
 
 export default ContactDetails;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     AccountOverviewContentGrid,
@@ -12,7 +13,6 @@ import SalesInfo from '../sales-info/sales-info-component';
 import ContactDetails from '../contact-details/contact-details-component';
 
 export const AccountOverviewContent = ({ data }) => {
-    console.log(data);
 
     return (
         <>
@@ -22,12 +22,12 @@ export const AccountOverviewContent = ({ data }) => {
                         <PrimaryTitle>Account Overview</PrimaryTitle>
                     </GridHeadLeftSide>
                     <GridHeadRightSide>
-                        <ContactDetails data={data} />
+                        <ContactDetails supportContact={data.supportContact} />
                     </GridHeadRightSide>
                 </GridHead>
 
                 <GridBody>
-                    <SalesInfo data={data} />
+                    <SalesInfo salesOverview={data.salesOverview} />
                 </GridBody>
 
             </AccountOverviewContentGrid>
@@ -35,5 +35,22 @@ export const AccountOverviewContent = ({ data }) => {
         </>
     )
 }
+
+AccountOverviewContent.propTypes = {
+    data: PropTypes.shape({
+        supportContact: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            email: PropTypes.string.isRequired,
+            phone: PropTypes.string.isRequired,
+        }).isRequired,
+        salesOverview: PropTypes.shape({
+            uploads: PropTypes.number.isRequired,
+            successfulUploads: PropTypes.number.isRequired,
+            linesAttempted: PropTypes.number.isRequired,
+            linesSaved: PropTypes.number.isRequired,
+            lastUploadDate: PropTypes.number.isRequired,
+        }).isRequired,
+    }).isRequired,
+};
 
 export default AccountOverviewContent;

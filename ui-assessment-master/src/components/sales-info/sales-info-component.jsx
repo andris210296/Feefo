@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInbox, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -14,11 +16,9 @@ import {
     GridItem
 } from './sales-info';
 
-export const SalesInfo = ({ data }) => {
-    console.log(data);
-
-    const percentageSuccessfulUploads = (data.salesOverview.successfulUploads / data.salesOverview.uploads) * 100;
-    const percentageSuccessfulLinesSaved = (data.salesOverview.linesSaved / data.salesOverview.linesAttempted) * 100;
+export const SalesInfo = ({ salesOverview }) => {
+    const percentageSuccessfulUploads = (salesOverview.successfulUploads / salesOverview.uploads) * 100;
+    const percentageSuccessfulLinesSaved = (salesOverview.linesSaved / salesOverview.linesAttempted) * 100;
 
     return (
         <>
@@ -33,7 +33,7 @@ export const SalesInfo = ({ data }) => {
                     </div>
                 </GridHead>
                 <GridBody>
-                    You had <BoldText> {data.salesOverview.uploads} uploads </BoldText> and <BoldText>{data.salesOverview.linesSaved}</BoldText> lines added.
+                    You had <BoldText> {salesOverview.uploads} uploads </BoldText> and <BoldText>{salesOverview.linesSaved}</BoldText> lines added.
                 </GridBody>
             </SalesGrid >
 
@@ -58,5 +58,15 @@ export const SalesInfo = ({ data }) => {
         </>
     )
 }
+
+SalesInfo.propTypes = {
+    salesOverview: PropTypes.shape({
+        uploads: PropTypes.number.isRequired,
+        successfulUploads: PropTypes.number.isRequired,
+        linesAttempted: PropTypes.number.isRequired,
+        linesSaved: PropTypes.number.isRequired,
+        lastUploadDate: PropTypes.number.isRequired,
+    }).isRequired,
+};
 
 export default SalesInfo;

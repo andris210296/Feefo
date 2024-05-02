@@ -14,7 +14,7 @@ import {
     GridItem
 } from './sales-info';
 
-export const SalesInfoComponent = ({ data }) => {
+export const SalesInfo = ({ data }) => {
     console.log(data);
 
     const percentageSuccessfulUploads = (data.salesOverview.successfulUploads / data.salesOverview.uploads) * 100;
@@ -59,4 +59,4 @@ export const SalesInfoComponent = ({ data }) => {
     )
 }
 
-export default SalesInfoComponent;
+export default SalesInfo;

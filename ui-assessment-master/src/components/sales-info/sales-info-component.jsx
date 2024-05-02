@@ -22,14 +22,14 @@ export const SalesInfo = ({ salesOverview }) => {
 
     return (
         <>
-            <SalesGrid >
+            <SalesGrid role="region" aria-labelledby="sales-title">
                 <GridHead>
                     <div style={{ display: 'flex', alignItems: 'center', color: 'gray' }}>
-                        <FontAwesomeIcon icon={faInbox} color="#0AC9F0" />
-                        <SalesTitle>Sales</SalesTitle>
+                        <FontAwesomeIcon icon={faInbox} color="#0AC9F0" aria-hidden="true" />
+                        <SalesTitle id="sales-title" aria-level="2">Sales</SalesTitle>
                     </div>
                     <div style={{ marginRight: "10px" }}>
-                        <FontAwesomeIcon icon={faInfoCircle} color="gray" />
+                        <FontAwesomeIcon icon={faInfoCircle} color="gray" aria-hidden="true" />
                     </div>
                 </GridHead>
                 <GridBody>
@@ -42,7 +42,7 @@ export const SalesInfo = ({ salesOverview }) => {
                     <PercentageResult>
                         {(percentageSuccessfulUploads.toFixed(0))}%
                     </PercentageResult>
-                    <SecondaryTitle>upload success</SecondaryTitle>
+                    <SecondaryTitle >upload success</SecondaryTitle>
 
                 </GridItem>
                 <GridItem>

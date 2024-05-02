@@ -20,17 +20,17 @@ export const ContactDetails = ({ supportContact }) => {
         <>
 
             <ContactInfoBox>
-                <SecondaryTitle>
+                <SecondaryTitle aria-level="2">
                     your feefo support contact
                 </SecondaryTitle>
-                <ContactDetailBox>
+                <ContactDetailBox role="group" aria-labelledby="contact-details-label">
                     <ContactImage>{supportContact.name.charAt(0)}</ContactImage>
                     <InfoBox>
                         <div style={{ fontWeight: 'bold', fontSize: '1.0em', color: '#696969' }}>
                             {supportContact.name}
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', color: 'gray' }}>
-                            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '7px', color: '#696969' }} />
+                            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '7px', color: '#696969' }} aria-hidden="true" />
                             <div>{supportContact.email}</div>
                             <PhoneBox>{supportContact.phone}</PhoneBox>
                         </div>

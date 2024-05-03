@@ -22,11 +22,11 @@ The note-taking application, "Notes App", is designed using a microservices arch
 - **Database**: This is where Notes App's data is stored. Each note is stored as a row in the notes table, with fields for the note's title, content, creation date, and last modification date. The database is built using SQL.
 
 ### Web APP UI
-In "Notes App", users start at the login page. After entering valid credentials, they receive a JWT token from the backend. This token is stored in the frontend for future authentication.
+Once "Notes App" is launched, users are taken to the login page. Each time users submit valid credentials, the backend issues them a JWT token. This token is stored in the frontend for use in future authentication.
 
-After login, users are taken to the notes page, where they can see their notes. The notes page interacts with the backend using CRUD operations, with the JWT token included in each request for authentication. 
+Users are sent to the notes page after logging in, where they can view their notes. CRUD operations are used by the notes page to communicate with the backend, and each request for authentication includes the JWT token.
 
-In this way, the login page directly links to the CRUD notes page, ensuring a seamless and secure user experience.
+The CRUD notes page may be accessed straight from the login page, guaranteeing a safe and easy user experience.
 
 ![alt text](image-1.png)
 
